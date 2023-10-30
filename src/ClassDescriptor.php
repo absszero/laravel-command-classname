@@ -12,7 +12,7 @@ use Symfony\Component\Console\Exception\CommandNotFoundException;
 
 class ClassDescriptor extends TextDescriptor
 {
-    protected function describeApplication(Application $application, array $options = [])
+    protected function describeApplication(Application $application, array $options = []): void
     {
         $description = new ApplicationDescription($application);
 
