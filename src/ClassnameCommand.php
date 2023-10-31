@@ -3,7 +3,6 @@
 namespace Absszero\CommandClassname;
 
 use Illuminate\Console\Command;
-use App\Console\Commands\ClassDescriptor;
 
 class ClassnameCommand extends Command
 {
