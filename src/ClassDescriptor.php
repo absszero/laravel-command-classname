@@ -46,7 +46,7 @@ class ClassDescriptor extends TextDescriptor
 
             foreach ($namespace['commands'] as $name) {
                 $this->writeText("\n");
-                $spacingWidth = $width - Helper::width($name);
+                $spacingWidth = $width - $this->width($name);
                 $command = $commands[$name];
                 $commandDescription = get_class($command);
                 if ($options['path']) {
@@ -77,15 +77,24 @@ class ClassDescriptor extends TextDescriptor
 
         foreach ($commands as $command) {
             if ($command instanceof Command) {
-                $widths[] = Helper::width($command->getName());
+                $widths[] = $this->width($command->getName());
                 foreach ($command->getAliases() as $alias) {
-                    $widths[] = Helper::width($alias);
+                    $widths[] = $this->width($alias);
                 }
                 continue;
             }
-            $widths[] = Helper::width($command);
+            $widths[] = $this->width($command);
         }
 
         return $widths ? max($widths) + 2 : 0;
+    }
+
+    private function width(?string $string): int
+    {
+        if (method_exists(Helper::class, 'width')) {
+            return Helper::width($string);
+        }
+
+        return Helper::strlen($string);
     }
 }

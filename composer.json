@@ -36,5 +36,22 @@
                 "Absszero\\CommandClassnameServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "test5": [
+            "composer require \"illuminate/support:5.*\" --no-interaction --no-update --no-plugins",
+            "composer update --prefer-source --no-interaction --no-plugins",
+            "vendor/bin/phpunit -c phpunit.xml"
+        ],
+        "test6": [
+            "composer require \"illuminate/support:6.*\" --no-interaction --no-update --no-plugins",
+            "composer update --prefer-source --no-interaction --no-plugins",
+            "vendor/bin/phpunit -c phpunit.xml"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": false
+        }
     }
 }
