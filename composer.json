@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Absszero\\CommandClassnameServiceProvider"
+                "Absszero\\CommandClassname\\CommandClassnameServiceProvider"
             ]
         }
     },
